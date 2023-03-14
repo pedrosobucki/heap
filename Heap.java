@@ -37,7 +37,31 @@ public class Heap {
   }
 
   private void sift_down ( int pos ) {
-   // ??????????????????????????????
+
+   
+    int left = left(pos);
+    int right = right(pos);
+
+    if (left > used || right > used) {
+      return;
+    }
+
+    int larger_child = larger(left, right);
+
+    if (larger_child > pos) {
+      switch_pos(larger_child, pos);
+      sift_down(larger_child);
+    }
+  }
+
+  private int larger(int pos1, int pos2) {
+    int larger = pos1;
+
+    if (v[pos2] > v[pos1]) {
+      larger = pos2;
+    }
+
+    return larger;
   }
 
   public int get( ) {
