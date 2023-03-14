@@ -15,7 +15,19 @@ public class Heap {
   private int parent ( int i ) { return (i-1) / 2; }
 
   private void sift_up ( int pos ) {
-   // ??????????????????????????????
+
+    int parent = parent(pos);
+
+    if (v[pos] > v[parent]) {
+      switch_pos(pos, parent);
+      sift_up(parent);
+    }
+  }
+
+  private void switch_pos(int pos1, int pos2) {
+    int tmp = v[pos1];
+    v[pos1] = v[pos2];
+    v[pos2] = tmp;
   }
 
   public void put( int data ) {
