@@ -37,17 +37,20 @@ public class Heap {
   }
 
   private void sift_down ( int pos ) {
-
-   
+    
+    // retrieves left and right children
     int left = left(pos);
     int right = right(pos);
 
+    // stops function if left or right position is greater than last used
     if (left > used || right > used) {
       return;
     }
 
+    // retrieves child with greater value
     int larger_child = larger(left, right);
 
+    // switches position if is smaller than child
     if (larger_child > pos) {
       switch_pos(larger_child, pos);
       sift_down(larger_child);
